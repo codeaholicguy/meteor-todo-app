@@ -89,7 +89,7 @@ if (Meteor.isServer) {
                     text: text,
                     createdAt: new Date(), // current time
                     owner: Meteor.userId(), // _id of logged in user
-                    username: Meteor.user().username  // username of logged in user
+                    username: Meteor.user().username || Meteor.user().profile.name  // username of logged in user
                 };
 
                 Tasks.insert(task);
