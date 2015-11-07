@@ -52,6 +52,10 @@ if (Meteor.isClient) {
 
         "change .hide-completed input": function (event) {
             Session.set("hideCompleted", event.target.checked);
+        },
+
+        "change .show-your-task input": function (event) {
+            Session.set("yourTasksOnly", event.target.checked);
         }
     });
 
@@ -87,6 +91,7 @@ if (Meteor.isServer) {
 
                 var task = {
                     text: text,
+                    checked: false,
                     createdAt: new Date(), // current time
                     owner: Meteor.userId(), // _id of logged in user
                     username: Meteor.user().username || Meteor.user().profile.name  // username of logged in user

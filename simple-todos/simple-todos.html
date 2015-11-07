@@ -11,13 +11,18 @@
     </header>
 
     <label class="hide-completed">
-        <input type="checkbox" checked="{{hideCompleted}}" />
+        <input type="checkbox" checked="{{hideCompleted}}"/>
         Hide Completed Tasks
     </label>
 
     {{#if currentUser}}
+    <label class="show-your-task">
+        <input type="checkbox" checked="{{yourTasksOnly}}"/>
+        Show your tasks only
+    </label>
+
     <form class="new-task">
-        <input type="text" name="text" placeholder="Type to add new tasks" />
+        <input type="text" name="text" placeholder="Type to add new tasks"/>
     </form>
     {{/if}}
 
@@ -33,7 +38,7 @@
     <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
         <button class="delete">&times;</button>
 
-        <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+        <input type="checkbox" checked="{{checked}}" class="toggle-checked"/>
 
         {{#if isOwner}}
         <button class="toggle-private">
